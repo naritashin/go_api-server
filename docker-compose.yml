@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  db-server:
+  mysql:
     image: mysql
     ports:
       - "3306:3306"
