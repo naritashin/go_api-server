@@ -15,5 +15,15 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_DATABASE: go_test
 
+  # app:
+  #     image: golang:1.10
+  #     ports: "3030:3030"
+  #     volumes:
+  #       - "./vender:/go/src/github.com"
+  #       - "./:/go/src/github.com/naritashin/go_api-server"
+    # depends_on:
+    #   - mysql
+    # command: go run /go/src/github.com/naritashin/go_api-server/app.go
+
 volumes:
   data:
