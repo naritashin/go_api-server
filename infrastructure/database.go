@@ -1,24 +1,25 @@
-package infrastructure
+package main
 
 import (
 	"fmt"
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
-	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/joho/godotenv"
 )
 
 func load() {
-	err := godotenv.Load()
+	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Err load .env")
 	}
 }
 
-type connectData struct {
+func main() {
 	load()
-	USER string fmt.Sprintf("$s", os.Getenv("USER_NAME"))
-	PASSWORD string fmt.Sprintf("$s", os.Getenv("PASSWORD"))
+	userName := fmt.Sprintf(os.Getenv("USER_NAME"))
+	password := fmt.Sprintf(os.Getenv("PASSWORD"))
+	dbName := fmt.Sprintf(os.Getenv("DATABASE_NAME"))
+	fmt.Println(userName, password, dbName)
 }
